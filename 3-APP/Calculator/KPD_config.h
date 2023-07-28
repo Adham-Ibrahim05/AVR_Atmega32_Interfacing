@@ -25,7 +25,7 @@
 #define	COLOUMN3		PIN5
 #define	COLOUMN4		PIN3
 
-#define KPD_ARR_VAL		{{7,8,9,'/'},{4,5,6,'*'},{1,2,3,'-'},{'13',0,'=','+'}}
+#define KPD_ARR_VAL		{{7,8,9,'/'},{4,5,6,'*'},{1,2,3,'-'},{'c',0,'=','+'}}
 						 
 						 
 						 

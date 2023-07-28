@@ -247,11 +247,16 @@ void LCD_voidGoToXY(u8 X_Pos, u8 Y_Pos)
 	_delay_ms(1);
 }
 
-void LCD_voidWriteNumber(u8 Number)
+void LCD_voidWriteNumber(u16 Number)
 {
 	u16 temp;
 	u8 Idx,Arr[SIZE_ARRAY_NUMBERS],Counter=0;
-	
+	if(Number==0)
+	{
+		LCD_voidSendData('0');
+	}
+	else
+	{
 	while(Number!=0)
 	{
 		temp = Number%10;
@@ -259,10 +264,12 @@ void LCD_voidWriteNumber(u8 Number)
 		Number/=10;
 		Counter++;
 	}
+	
 			for(Idx=Counter; Idx>0;Idx--)
 			{
 				LCD_voidSendData(Arr[Idx-1] + 48);//+ 48 for  represented integer for characters.
 			}
+	}	
 }
 
 void LCD_voidWriteSpecialCharacter(u8 *Array_Of_Pattern, u8 Block_No, u8 X_pos, u8 Y_pos)
