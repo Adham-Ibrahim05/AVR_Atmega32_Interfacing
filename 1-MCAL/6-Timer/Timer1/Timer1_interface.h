@@ -2,20 +2,27 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	Timer1			***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
+#ifndef		TIMER_INTERFACE_H
+#define		TIMER_INTERFACE_H
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+void Timer1_voidInit(void);
 
-void DIO_VoidInit(void);
+void Timer1_SetCompareMatchMode(void);
 
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
+void Timer1_voidSetOCR1AValue(u16 Value);
 
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
+void Timer1_voidSetICR1Value(u16 Value);
 
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
+void Timer1_ICUInterruptEnable(void);
+
+void Timer1_ICUInterruptDisable(void);
+
+void Timer1_ICUSenseMode (u8 Mode);
+
+u16 Timer1_ICR1Read(void);
 
 #endif

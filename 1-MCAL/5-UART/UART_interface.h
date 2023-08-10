@@ -2,20 +2,23 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	UART			***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
+#ifndef UART_INTERFACE_H
+#define UART_INTERFACE_H
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+void UART_Init( );
 
-void DIO_VoidInit(void);
+void UART_SynchTransmit( u8 data );
 
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
+u8 UART_SynchReceive( );
 
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
+void UART_voidASynchSendString(u8* Data);
 
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
+u8 UART_voidASynchRecieve(void (*ptr)(u8));
 
-#endif
+void UART_VoidSetCallBack(void (*Copy_pf) (u8));
+
+#endif	

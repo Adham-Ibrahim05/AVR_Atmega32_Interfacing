@@ -2,20 +2,20 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	WDT			***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+#ifndef WDT_REGISTER_H_
+#define WDT_REGISTER_H_
 
-void DIO_VoidInit(void);
+#define WDTCR			(*((volatile u8 *)0x41 ))
 
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
-
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
-
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
+#define WDTCR_WPD0		0
+#define WDTCR_WPD1		1
+#define WDTCR_WPD2		2
+#define WDTCR_WDE		3	
+#define WDTCR_WDTOE		4
 
 #endif

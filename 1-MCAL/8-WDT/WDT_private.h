@@ -2,20 +2,22 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	WDT				***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
+#ifndef WDT_PRIVATE_H_
+#define WDT_PRIVATE_H_
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+#define TIME_OUT_MASK			0b11111000
 
-void DIO_VoidInit(void);
-
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
-
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
-
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
+#define	WDT_TIME_OUT_16_3ms		0
+#define	WDT_TIME_OUT_32_5ms		1
+#define	WDT_TIME_OUT_65_ms		2
+#define	WDT_TIME_OUT_0_13s		3
+#define	WDT_TIME_OUT_0_26s		4
+#define	WDT_TIME_OUT_0_52s		5
+#define	WDT_TIME_OUT_1s			6
+#define	WDT_TIME_OUT_2_1s		7
 
 #endif

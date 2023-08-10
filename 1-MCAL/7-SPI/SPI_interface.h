@@ -2,20 +2,21 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	SPI				***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
+#ifndef SPI_INTERFACE_H_
+#define SPI_INTERFACE_H_
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+void SPI_voidMasterInit(void);
 
-void DIO_VoidInit(void);
+void SPI_voidSlaveInit(void);
 
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
+u8 SPI_u8Transmit_RecieveSynch(u8 Copy_Data);
 
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
+u8 SPI_u8ReadAsynchData(u8* data,u8 buffer_size,void (*pf)(void));
 
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
+u8 SPI_u8SendAsynchData(u8* Copy_Data,u8 buffer_size);
 
 #endif

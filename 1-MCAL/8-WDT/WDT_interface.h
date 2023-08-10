@@ -2,20 +2,18 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	WDT				***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+#ifndef WDT_INTERFACE_H_
+#define WDT_INTERFACE_H_
 
-void DIO_VoidInit(void);
+void WDT_voidON(void);
 
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
+void WDT_voidOFF(void);
 
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
-
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
+void WDT_voidRefresh(void);
 
 #endif

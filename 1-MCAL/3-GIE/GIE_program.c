@@ -2,20 +2,26 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	GIE				***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
 
-void DIO_VoidInit(void);
 
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
+#include "GIE_interface.h"
+#include "GIE_register.h"
+#include "GIE_config.h"
 
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
 
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
+void GIE_voidEnable(void)
+{
+	SET_BIT(SREG,SREG_I);
+}
 
-#endif
+void GIE_voidDisable(void)
+{
+	CLR_BIT(SREG,SREG_I); 
+}

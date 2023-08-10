@@ -14,35 +14,23 @@
 #include "DIO_register.h"
 #include "DIO_private.h"
 
-void DIO_voidSetPinDirection(u8 PORT_ID,u8 PIN_ID,u8 Direction)
+void DIO_VoidInit(void)
 {
-	if(PIN_ID <= PIN7)
-	{
-		if(Direction == PIN_INPUT)
-		{
-			switch(PORT_ID)
-			{
-				case DIO_PORTA: CLR_BIT(DDRA,PIN_ID);break;
-				case DIO_PORTB: CLR_BIT(DDRB,PIN_ID);break;
-				case DIO_PORTC: CLR_BIT(DDRC,PIN_ID);break;
-				case DIO_PORTD: CLR_BIT(DDRD,PIN_ID);break;
-			}
-		}
-		else if(Direction == PIN_OUTPUT)
-		{
-			switch(PORT_ID)
-			{
-				case DIO_PORTA: SET_BIT(DDRA,PIN_ID);break;
-				case DIO_PORTB: SET_BIT(DDRB,PIN_ID);break;
-				case DIO_PORTC: SET_BIT(DDRC,PIN_ID);break;
-				case DIO_PORTD: SET_BIT(DDRD,PIN_ID);break;
-			}
-		}
-	}
+	DDRA = PORTA_DIR;
+	DDRB = PORTB_DIR;
+	DDRC = PORTC_DIR;
+	DDRD = PORTD_DIR;
+	
+	PORTA = PORTA_INITIAL_VALUE;
+	PORTB = PORTB_INITIAL_VALUE;
+	PORTC = PORTC_INITIAL_VALUE;
+	PORTD = PORTD_INITIAL_VALUE;
 }
+
+
 void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value)
 {
-	if(PIN_ID <= PIN7)
+	if(PIN_ID <= DIO_PIN7)
 	{
 		if(Value == PIN_LOW)
 		{
@@ -67,16 +55,7 @@ void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value)
 	}
 }
 
-void DIO_voidSetPortDirection(u8 PORT_ID,u8 Direction)
-{
-	switch(PORT_ID)
-	{
-		case DIO_PORTA: DDRA= Direction;break;
-		case DIO_PORTB: DDRB= Direction;break;
-		case DIO_PORTC: DDRC= Direction;break;
-		case DIO_PORTD: DDRD= Direction;break;
-	}
-}
+
 void DIO_voidSetPortValue(u8 PORT_ID,u8 Value)
 {
 	switch(PORT_ID)
@@ -91,7 +70,7 @@ void DIO_voidSetPortValue(u8 PORT_ID,u8 Value)
 u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value)
 {
 	u8 NULL_PtrErrorState = 0;
-	if(Value!=NULL && PIN_ID<=PIN7)
+	if(Value!=NULL && PIN_ID<=DIO_PIN7)
 	{
 		switch(PORT_ID)
 		{

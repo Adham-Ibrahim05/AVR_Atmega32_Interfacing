@@ -2,20 +2,31 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	ADC				***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
+#ifndef _ADC_INTERFACE_H
+#define _ADC_INTERFACE_H
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+void ADC_voidInit (void);
 
-void DIO_VoidInit(void);
+void ADC_voidEnable(void);
 
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
+void ADC_voidInterrputEnable(void);
 
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
+void ADC_voidDisable(void);
 
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
+u16 ADC_u16GetChannelReading(void);
+
+void ADC_voidStartConversion(void);
+
+void ADC_Channel(void);
+
+//u8 ADC_u8ReadADC(pf addresscpy);
+
+//void ADC_voidAutoTrigger();
+
+
 
 #endif

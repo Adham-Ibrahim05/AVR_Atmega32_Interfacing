@@ -2,20 +2,19 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	SPI				***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
+#ifndef SPI_CONFIG_H_
+#define SPI_CONFIG_H_
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+#define DATA_ORDER		LSB
 
-void DIO_VoidInit(void);
+#define SPI_FREQUENCY   DIV_BY_16
 
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
+#define CLOCK_POLARITY	CLKPOL_RISING_FALLING
 
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
-
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
+#define CLOCK_PHASE		CLKPH_SAMPLE_SETUP
 
 #endif

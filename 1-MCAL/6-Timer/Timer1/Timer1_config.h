@@ -2,20 +2,20 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	Timer1			***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
+#ifndef		TIMER_CONFIG_H
+#define		TIMER_CONFIG_H
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+#define Timer1_MODE				NORMAL
 
-void DIO_VoidInit(void);
+#define Timer1_PRESCALLER		DIV_BY8
 
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
+#define COMPARE_MODE			FAST_PWM_NONINV
 
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
+#define Sys_Freq				8000000UL
 
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
 
 #endif

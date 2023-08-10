@@ -2,20 +2,18 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	EXTI			***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
+#ifndef		EXTI_PRIVATE_H
+#define		EXTI_PRIVATE_H
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+#define	SENSE_CONTROL_MASK	0b11110011
+#define	EXTI_FALLING		0
+#define	EXTI_RISING			1
+#define	EXTI_IOC			2
+#define	EXTI_LOW			3
 
-void DIO_VoidInit(void);
-
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
-
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
-
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
 
 #endif

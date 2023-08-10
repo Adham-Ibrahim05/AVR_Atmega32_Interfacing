@@ -2,20 +2,19 @@
 /**********************************************************/
 /***************	Author: Adham Ibrahim	***************/
 /***************	Layer: 	MCAL			***************/
-/***************	SWC: 	DIO				***************/
+/***************	SWC: 	ADC				***************/
 /***************	Version:1.00			***************/
 /**********************************************************/
 /**********************************************************/
+#ifndef _ADC_CONFIG_H
+#define _ADC_CONFIG_H
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+#define VOLTAGE_REFERENCE		AVCC
 
-void DIO_VoidInit(void);
+#define ADJUSTMENT				RIGHT_ADJUSTMENT
 
-void DIO_voidSetPinValue(u8 PORT_ID,u8 PIN_ID,u8 Value);
+#define ADC_PRESCALLER			DIV_BY_8
 
-void DIO_voidSetPortValue(u8 PORT_ID,u8 Value);
+#define CHANNEL					ADC0
 
-u8 DIO_u8GetPinValue(u8 PORT_ID,u8 PIN_ID,u8* Value);
-
-#endif
+#endif	
